@@ -22,6 +22,7 @@ namespace prueba06092022.Controllers
         public ContactoController(ILogger<ContactoController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context= context;
         }
 
         public IActionResult Index()
@@ -37,11 +38,6 @@ namespace prueba06092022.Controllers
          _context.SaveChanges();
          return View ("Index");
         }    
-
-
-
-
-
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
