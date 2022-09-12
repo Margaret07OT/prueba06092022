@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using prueba06092022.Models;
 using prueba06092022.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace prueba06092022.Controllers
 {
@@ -22,7 +23,7 @@ namespace prueba06092022.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string? searchString)
+        public async Task<IActionResult> Index(string? searchString)
         {
             var productos= from o in _context.DataProductos select o;
             
@@ -30,10 +31,18 @@ namespace prueba06092022.Controllers
                   productos = productos.Where(s => s.Name.Contains(searchString));
             }
 
-
-            return View(productos.ToList());
+            return View(await productos.ToListAsync());
         }
 
+
+         public async Task<IActionResult> Details(int? id){
+            Productos objProduct = await _context.DataProductos.FindAsync(id);
+            if(objProduct == null){
+                return NotFound();
+            }
+            return View(objProduct);
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
