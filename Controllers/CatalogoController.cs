@@ -35,7 +35,7 @@ namespace prueba06092022.Controllers
         }
 
 
-         public async Task<IActionResult> Details(int? id){
+         public async Task<IActionResult> Details(int? id){ 
             Productos objProduct = await _context.DataProductos.FindAsync(id);
             if(objProduct == null){
                 return NotFound();
