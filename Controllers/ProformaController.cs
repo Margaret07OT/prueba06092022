@@ -56,7 +56,7 @@ namespace prueba06092022.Controllers
 
 
             //MEMORIA EN RUN TIME EN TIEMPO DE EJECUCIÓN 
-            
+
             dynamic model = new ExpandoObject();// Crea una clase en tiempo de ejecución
             model.montoTotal = total;// le pone un valor y los atos del carrito, le pasas un objeto dinámico
             model.elementosCarrito = itemsCarrito;
@@ -85,4 +85,3 @@ namespace prueba06092022.Controllers
 
         
     }
-}
