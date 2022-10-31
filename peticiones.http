@@ -3,6 +3,41 @@ GET https://localhost:7248/api/[productos] HTTP/1.1
 Accept: application/json 
 
 
+GET https://localhost:7248/api/[productos]/1 HTTP/1.1
+Accept: application/json 
+
+POST https://localhost:7248/api/[productoref] HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Caja de lapiceros",
+  "descripcion": "Botella de 3ml",
+  "precio": 0.50,
+  "porcentajeDescuento": 0,
+  "imageName": "lapiz.jpg",
+  "status": "Activo"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 GET https://gorest.co.in/public/v2/users HTTP/1.1
 
 POST https://gorest.co.in/public/v2/users HTTP/1.1
